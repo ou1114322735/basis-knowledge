@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <h1>{{title}}</h1>
+        <ul>
+            <li v-for="(item,i) in productions">
+                name:{{item.name}},剩余：
+                <button @click="changestock(item,item.stock - 1)">-</button>
+                {{item.stock | format}}
+                <button @click="changestock(item,item.stock + 1)">+</button>
+                <button @click="deleteItem(i)">删除</button>
+            </li>
+        </ul>
+        <p>总余量：{{total}}</p>
+    </div>
+    <script src="./vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#root",
+            data:{
+                title:"hello world",
+                productions:[
+                    {name:"xiaomi",stock:15},
+                    {name:"huawei",stock:13},
+                    {name:"vivo",stock:6},
+                    {name:"oppo",stock:34},
+                ],
+            },
+            filters:{
+                format(code){
+                    if(+code === 0){
+                        return "无货"
+                    }
+                }
+            },
+            computed:{
+                total(){
+                    return this.productions.reduce((a,b)=>a+b.stock,0);
+                }
+            },
+            methods:{
+                changestock(item,newValue){
+                    if(newValue < 0){
+                        newValue = 0;
+                    }
+                    item.stock = newValue
+                },
+                deleteItem(i){
+                    this.productions.splice(i,1)
+                }
+            }
+
+        })
+        console.log(vm);
+    </script>
+</body>
+</html>
