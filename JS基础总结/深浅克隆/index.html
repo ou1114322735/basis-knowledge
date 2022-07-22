@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 浅克隆： 基本数据类型克隆其值，引用数据类型克隆其引用
+        //实现方法： 展开运算符, map,slice,assign，concat，reduce
+        //深克隆：不管基本数据类型还是引用数据类型，都重新拷贝一本，不存在共享数据
+        //实现方法： 
+        // 1. 
+        // JSON.parse(JSON.stringify(obj)); //存在问题：会忽略undefined,symbol,不能序列化函数，不能解决循环引用问题，不能正确处理new Date(),不能处理正则，不能处理new Error()
+
+
+
+        // 2. 递归遍历对象
+        function deepClone(obj){
+            if(obj === null || typeof obj !== 'object' ){
+                return obj
+            }
+            let newObj = Array.isArray(obj) ? [] : {};
+            for (const key in obj) {
+                if (Object.hasOwnProperty.call(obj, key)) {
+                    const element = obj[key];
+                    newObj[key] = deepClone(element)
+                }
+            }
+            return newObj
+        }
+        //存在的问题 ： 不能解决循环引用问题，不能处理new Date(),不能处理正则，不能处理new Error()
+
+    </script>
+</body>
+</html>

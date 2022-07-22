@@ -1,0 +1,24 @@
+/*!*****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/assets/global.css ***!
+  \*****************************************************************************************************/
+body {
+    padding: 20px;
+}
+/*!********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/pages/Home/index.css ***!
+  \********************************************************************************************************/
+.m7aaCwmhK6EUHTLBHsq0 {
+    background: #00593A;
+}
+
+.m7aaCwmhK6EUHTLBHsq0:hover{
+    background-color: bisque;
+}
+
+.FW0Idh55HYmflmqWF1vp {
+    width: 100px;
+    height: 100px;
+    background-image: url(ec5754337e8293512800.jpg);
+}
+
+/*# sourceMappingURL=bundle.fb751.css.map*/

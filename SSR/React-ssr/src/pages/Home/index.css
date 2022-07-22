@@ -1,0 +1,13 @@
+.btn {
+    background: #00593A;
+}
+
+.btn:hover{
+    background-color: bisque;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background-image: url('../../assets/img1.jpg');
+}
